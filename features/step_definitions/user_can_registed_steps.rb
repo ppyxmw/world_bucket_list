@@ -31,8 +31,8 @@ Given(/^I am signed in$/) do
  end
 
 When(/^I add destinations$/) do
-  @user.destinations.create!(name: 'Bulgaria')
-  @user.destinations.create!(name: 'Algeria')
+  @bulgaria = @user.destinations.create!(name: 'Bulgaria')
+  @algeria = @user.destinations.create!(name: 'Algeria')
   @user.save
   click_link'Add a destination'
   fill_in 'Name', with: 'Canada'
@@ -42,4 +42,13 @@ end
 Then(/^destinations appear in alphabetical order on the traveller's profile$/) do
   #expect(page).to match("Algeria\nBulgaria\nCanada")
   expect(page.html).to match("<p>Algeria</p>\n<p>Bulgaria</p>\n<p>Canada</p>")
+end
+
+When(/^I can add todo items$/) do
+  visit new_destination_todo_path(@algeria)
+  fill_in "Task", with: 'Visit museum'
+  fill_in 'Location', with: 'Town Centre'
+  click_button 'Create Todo'
+  #visit 
+  #expect(page).to have_content('Town Centre')
 end

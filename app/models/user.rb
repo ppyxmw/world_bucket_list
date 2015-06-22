@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :destinations
+  has_many :todos, through: :destinations
 
   def sorted_destination_names
     self.destinations.all.map(&:name).map(&:capitalize).sort

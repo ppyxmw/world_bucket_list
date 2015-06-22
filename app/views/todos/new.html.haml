@@ -1,0 +1,7 @@
+%h1= @destination.name
+= form_for([@destination, @todo]) do |f|
+  = f.label(:task)
+  = f.text_field(:task)
+  = f.label(:location)
+  = f.text_field(:location)
+  = f.submit
