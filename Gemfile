@@ -9,12 +9,16 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'
+  gem 'pry'
 
   gem 'web-console', '~> 2.0'
 
+  gem 'haml-rails'
+  gem 'better_errors'
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
