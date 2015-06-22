@@ -3,4 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_many :destinations
+
+  def sorted_destination_names
+    self.destinations.all.map(&:name).map(&:capitalize).sort
+  end
 end

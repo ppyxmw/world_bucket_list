@@ -1,3 +1,5 @@
 %h1= @user.email
-%a{href: '#'}
-  Add Destination
+=link_to 'Add a destination', new_user_destination_path(@user)
+
+-@user.sorted_destination_names.each do |destination|
+  %p= destination

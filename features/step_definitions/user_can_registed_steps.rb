@@ -31,13 +31,15 @@ Given(/^I am signed in$/) do
  end
 
 When(/^I add destinations$/) do
-  click_link'Add Destination'
-  fill_in 'Name', with: 'Canada'
-  click_button 'Submit'
-  @user.destinations.create!(name: 'Bulgria')
+  @user.destinations.create!(name: 'Bulgaria')
   @user.destinations.create!(name: 'Algeria')
+  @user.save
+  click_link'Add a destination'
+  fill_in 'Name', with: 'Canada'
+  click_button 'Create Destination'
 end
 
 Then(/^destinations appear in alphabetical order on the traveller's profile$/) do
-  pending
+  #expect(page).to match("Algeria\nBulgaria\nCanada")
+  expect(page.html).to match("<p>Algeria</p>\n<p>Bulgaria</p>\n<p>Canada</p>")
 end
