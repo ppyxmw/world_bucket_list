@@ -8,6 +8,7 @@ class DestinationsController < ApplicationController
   end
 
   def create
+
     @destination = current_user.destinations.create(destination_params)
     redirect_to user_path current_user
   end
@@ -19,7 +20,7 @@ class DestinationsController < ApplicationController
   private
 
   def destination_params
-    params.require(:destination).permit(
+        params.require(:destination).permit(
       :name
       )
   end

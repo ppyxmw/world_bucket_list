@@ -1,6 +1,6 @@
 %h1= @user.email
 =link_to 'Add a destination', new_user_destination_path(@user)
 
--@user.sorted_destination_names.each do |destination|
+-@user.destinations.each do |destination|
   %p
-    = link_to  destination.name, destination 
+    = link_to  destination.name, destination
