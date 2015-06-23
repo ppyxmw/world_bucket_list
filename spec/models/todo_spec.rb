@@ -44,11 +44,11 @@ RSpec.describe Todo, type: :model do
 
   describe 'Geocoding works' do
     it 'has a latitude' do
-      expect(todo.latitude).not_to eq(nil)
+      expect(todo.latitude).to eq(40.7143528)
     end
 
     it 'has a longitude' do
-      expect(todo.longitude).not_to eq(nil)
+      expect(todo.longitude).to eq(-74.0059731)
     end
   end
 end
