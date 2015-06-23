@@ -40,9 +40,7 @@ When(/^I add destinations$/) do
 end
 
 Then(/^destinations appear in alphabetical order on the traveller's profile$/) do
-  expect(page).to have_content("Algeria")
-  expect(page).to have_content("Bulgaria")
-  expect(page).to have_content("Canada")
+   expect(all('.destination').map(&:text).join(', ')).to eq("Algeria, Bulgaria, Canada")
 end
 
 When(/^I can add todo items$/) do

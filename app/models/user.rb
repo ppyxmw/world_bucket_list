@@ -5,6 +5,4 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :destinations, -> { order 'destinations.name'}
   has_many :todos, through: :destinations
-
-
 end
