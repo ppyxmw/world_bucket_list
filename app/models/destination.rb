@@ -4,7 +4,7 @@ class Destination < ActiveRecord::Base
 
   after_create :capitalize
   def capitalize
-    self.name = self.name.capitalize
+    self.name = self.name.titleize
     self.save!
   end
 
