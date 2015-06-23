@@ -1,6 +1,8 @@
 %h1= @destination.name
 - @destination.todos.each do |todo|
   %p
-    = todo.task
     = todo.location
+    = todo.task
+    = todo.latitude
+    = todo.longitude
 = link_to 'Add todo', new_destination_todo_path(@destination)

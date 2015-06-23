@@ -10,6 +10,9 @@ RSpec.describe Destination, type: :model do
 
   it 'expects destination name to be unique' do
     user.destinations.create(name: 'Kampala')
+
+    user.destinations.create(name: 'Kampala')
+
     expect(user.destinations.new(name: 'Kampala')).to be_invalid
   end
 end
