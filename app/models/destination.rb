@@ -7,4 +7,6 @@ class Destination < ActiveRecord::Base
     self.name = self.name.capitalize
     self.save!
   end
+
+  validates_uniqueness_of :name
 end
