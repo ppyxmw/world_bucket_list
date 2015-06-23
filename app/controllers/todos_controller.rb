@@ -8,7 +8,7 @@ class TodosController < ApplicationController
   def create
     @destination = Destination.find(params['destination_id'])
     @destination.todos.create(todos_params)
-    redirect_to user_path(current_user)
+    redirect_to user_destination_path(current_user, @destination)
   end
 
   private

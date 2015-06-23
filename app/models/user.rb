@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :todos, through: :destinations
 
   def sorted_destination_names
-    self.destinations.all.map(&:name).map(&:capitalize).sort
+    self.destinations.all.sort_by { |x| x.name.capitalize }
+    #self.destinations.all.map(&:name).map(&:capitalize).sort
   end
 end

@@ -3,6 +3,10 @@ class DestinationsController < ApplicationController
     @destination = current_user.destinations.new
   end
 
+  def show
+    @destination = Destination.find(params['id'])
+  end
+
   def create
     @destination = current_user.destinations.create(destination_params)
     redirect_to user_path current_user

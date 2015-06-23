@@ -40,8 +40,9 @@ When(/^I add destinations$/) do
 end
 
 Then(/^destinations appear in alphabetical order on the traveller's profile$/) do
-  #expect(page).to match("Algeria\nBulgaria\nCanada")
-  expect(page.html).to match("<p>Algeria</p>\n<p>Bulgaria</p>\n<p>Canada</p>")
+  expect(page).to have_content("Algeria")
+  expect(page).to have_content("Bulgaria")
+  expect(page).to have_content("Canada")
 end
 
 When(/^I can add todo items$/) do
@@ -49,6 +50,5 @@ When(/^I can add todo items$/) do
   fill_in "Task", with: 'Visit museum'
   fill_in 'Location', with: 'Town Centre'
   click_button 'Create Todo'
-  #visit 
-  #expect(page).to have_content('Town Centre')
+  expect(page).to have_content('Town Centre')
 end
